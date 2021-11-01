@@ -39,7 +39,6 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "generate-json-from-js-webpack-plugin": "^0.1.1",
     "gulp": "^4.0.2",
     "husky": "^7.0.2",
     "is-ci": "^3.0.0",

@@ -1,8 +1,7 @@
 const path = require('path')
-const GenerateJsonFromJsPlugin = require('generate-json-from-js-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/scripts/module.ts'),
+  entry: path.resolve(__dirname, 'src/scripts/inactive-tokens.ts'),
   module: {
     rules: [
       {
@@ -19,10 +18,4 @@ module.exports = {
     filename: 'scripts/inactive-tokens.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    new GenerateJsonFromJsPlugin({
-      path: './src/lang/en.ts',
-      filename: 'lang/en.json',
-    }),
-  ],
 }

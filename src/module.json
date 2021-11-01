@@ -21,7 +21,6 @@
   "type": "module",
   "socket": true,
   "includes": [
-    "./lang/**",
     "./scripts/**",
     "./module.json",
     "./README.md"
@@ -42,12 +41,5 @@
   ],
   "scripts": [
     "scripts/inactive-tokens.js"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
   ]
 }
