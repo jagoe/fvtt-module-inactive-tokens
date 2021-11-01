@@ -14,14 +14,47 @@ A changelog can bout found [here](./CHANGELOG.md).
 
 # Description
 
-<!-- A Foundry VTT module that automatically opens and focuses the current combatant's actor/token sheet.\
-It works well with [PopOut!](https://github.com/League-of-Foundry-Developers/fvtt-module-popout) to declutter the screen, while still enabling a GM to quickly view and access each combatant's sheet.
+A Foundry VTT module that allows GMs to activate and deactivate tokens for their players. It produces the same behavior as setting `interactive` to `false`, but without disabling the token for the GM.
 
-Currently, there is no public API for the module. If there is a need for one, feel free to open an issue or create a PR. -->
+The main reason I developed this is in order to turn tokens into statues (or statues into sudden enemies!). So I'll also provide the macro that does that here:
+
+```js
+let filterId = 'stone'
+let params =
+[{
+    filterType: "adjustment",
+    filterId: filterId,
+    saturation: 0,
+    // feel free to adjust for a greytone you like (or any color, really)
+    red: 0.8,
+    green: 0.8,
+    blue: 0.8,
+}];
+
+let tokens = game.canvas.tokens.controlled
+let shouldEnable = !tokens.some(token => TokenMagic.hasFilterId(token, filterId))
+
+if (shouldEnable) {
+  tokens.forEach(turnToStone)
+} else {
+  tokens.forEach(turnToFlesh)
+}
+
+function turnToStone(token) {
+  TokenMagic.addFilters(token, params)
+  InactiveTokensModule.singleton.deactivateTokenForPlayers(token)
+}
+
+function turnToFlesh(token) {
+  TokenMagic.deleteFilters(token, filterId)
+  InactiveTokensModule.singleton.activateTokenForPlayers(token)
+}
+```
 
 ## Installation
 
-Install using the following [manifest URL](https://github.com/jagoe/fvtt-module-inactive-tokens/releases/latest/download/module.json).
+Select "Inactive Tokens" in the module installation tool of your choice.\
+You can also install manually by using the following [manifest URL](https://github.com/jagoe/fvtt-module-inactive-tokens/releases/latest/download/module.json).
 
 Then, as GM, enable the `Inactive Tokens` module in the `Manage Modules` settings in the Game Settings tab.
 
@@ -33,7 +66,17 @@ The module does not have any configuration.
 
 The module provides the following methods than can be called from macros or other modules:
 
-<!-- TODO: API -->
+```ts
+InactiveTokensModule.singleton.activateTokenForPlayers(token: Token | TokenDocument): Promise<void>
+InactiveTokensModule.singleton.deactivateTokenForPlayers(token: Token | TokenDocument): Promise<void>
+InactiveTokensModule.singleton.isTokenActiveForPlayers(token: Token | TokenDocument): boolean
+```
+
+You'd probably usually want to retrieve a token
+
+* that has been selected, e.g.: `game.canvas.tokens.controlled[0]`
+* by id, e.g.: `game.canvas.tokens.get(id)`
+* from the canvas, e.g.: `game.canvas.tokens.documentCollection[id]` or `game.canvas.tokens.documentCollection.contents[0]`
 
 ## `libWrapper`
 
