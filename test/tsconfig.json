@@ -1,0 +1,33 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "..",
+    "types": [
+      "node",
+      "@league-of-foundry-developers/foundry-vtt-types",
+      "chai",
+      "mocha",
+      "NodeJS",
+      "FoundryVTT",
+    ],
+    "typeRoots": [
+      "@types",
+      "../src/@types",
+      "../node_modules/@types",
+    ],
+    "paths": {
+      "@util": [
+        "test/@util"
+      ],
+      "@util/*": [
+        "test/@util/*"
+      ],
+      "@src/*": [
+        "src/scripts/*"
+      ],
+      "@/*": [
+        "test/*"
+      ],
+    },
+  },
+}

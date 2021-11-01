@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+yarn-error.log
+
+# build artifacts
+dist
+
+# test artifacts
+.nyc_output
+coverage

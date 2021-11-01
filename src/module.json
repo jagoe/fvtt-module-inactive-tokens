@@ -1,0 +1,53 @@
+{
+  "name": "inactive-tokens",
+  "title": "Inactive Tokens",
+  "description": "Deactivate tokens for players, so they can't hover or click on them.",
+  "author": "jagoe — ich#0084",
+  "authors": [
+    {
+      "name": "jagoe",
+      "discord": "ich#0084"
+    }
+  ],
+  "version": "0.0.1",
+  "minimumCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "0.8.9",
+  "manifestPlusVersion": "1.0.0",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "bugs": "",
+  "changelog": "",
+  "type": "module",
+  "socket": true,
+  "includes": [
+    "./lang/**",
+    "./scripts/**",
+    "./module.json",
+    "./README.md"
+  ],
+  "media": [
+    {
+      "type": "icon",
+      "location": ""
+    },
+    {
+      "type": "cover",
+      "location": ""
+    },
+    {
+      "type": "screenshot",
+      "location": ""
+    }
+  ],
+  "scripts": [
+    "scripts/inactive-tokens.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}
