@@ -3,7 +3,6 @@ import * as del from 'del'
 import {dest, src} from 'gulp'
 
 import webpack from 'webpack'
-// import webpackConfig from '../webpack.config'
 
 export async function clean() {
   del.sync(['dist'])
