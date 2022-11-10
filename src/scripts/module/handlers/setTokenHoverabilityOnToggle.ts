@@ -1,15 +1,15 @@
-import {isUserGM, getToken, setHoverability} from '../../foundry'
-import {SocketData} from '../../socket'
+import {getToken, isUserGM, setHoverability} from '../../foundry'
+import {TokenState} from '../constants'
 
-export function setTokenHoverabilityOnToggle(data: SocketData): void {
+export function setTokenHoverabilityOnToggle({tokenId, state}: {tokenId: string; state: TokenState}): void {
   if (isUserGM()) {
     return // GM doesn't need to deactivate tokens
   }
 
-  const token = getToken(data.tokenId)
+  const token = getToken(tokenId)
   if (!token) {
     return
   }
 
-  setHoverability(token, data.state)
+  setHoverability(token, state)
 }

@@ -1,4 +1,4 @@
-import {InactiveTokensModule} from '../../module'
+import {InactiveTokensModule} from '../../scripts/module'
 
 export {}
 

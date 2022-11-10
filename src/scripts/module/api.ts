@@ -1,9 +1,10 @@
 import {isUserGM} from '../foundry'
-import {socket, SocketEvents} from '../socket'
-import {MODULE_KEY, TokenState, TokenStates} from './constants'
+import {MODULE_KEY, TOGGLE_HOVERABILITY_EVENT, TokenState, TokenStates} from './constants'
 
 export class InactiveTokensModule {
   public static singleton: InactiveTokensModule = new InactiveTokensModule()
+
+  public socket: socketlib.Socket
 
   public async activateTokenForPlayers(token: Token | TokenDocument): Promise<void> {
     await this._setTokenStateForPlayers(token, TokenStates.active)
@@ -34,6 +35,6 @@ export class InactiveTokensModule {
 
     await document.setFlag(MODULE_KEY, 'isActive', state)
 
-    socket.emit({event: SocketEvents.toggle, tokenId: token.id, state: state})
+    await this.socket.executeForEveryone(TOGGLE_HOVERABILITY_EVENT, {tokenId: token.id, state})
   }
 }
