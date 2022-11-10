@@ -9,9 +9,14 @@
       "discord": "ich#0084"
     }
   ],
-  "version": "1.0.0",
-  "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "0.8.9",
+  "version": "1.1.0",
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "10",
+  "compatibility": {
+    "minimum": 9,
+    "maximum": 10,
+    "verified": 10
+  },
   "manifestPlusVersion": "1.0.0",
   "url": "",
   "manifest": "",
@@ -20,6 +25,18 @@
   "changelog": "",
   "type": "module",
   "socket": true,
+  "relationships": {
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module",
+        "manifest": "https://github.com/manuelVo/foundryvtt-socketlib/blob/develop/module.json",
+        "compatibility": {
+          "verified": "1.0.12"
+        }
+      }
+    ]
+  },
   "includes": [
     "./scripts/**",
     "./module.json",

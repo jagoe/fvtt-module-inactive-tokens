@@ -1,5 +1,7 @@
+# Readme
+
 <!-- ![Release](https://img.shields.io/github/v/release/jagoe/fvtt-module-inactive-tokens?sort=semver)
-![Supported Foundry Version](https://img.shields.io/badge/Foundry-v0.7.9-informational)
+![Supported Foundry Version](https://img.shields.io/badge/Foundry-v9+-informational)
 ![Latest Release Download Count](https://img.shields.io/github/downloads/jagoe/fvtt-module-inactive-tokens/latest/module.zip)
 ![Forge Installs](https://img.shields.io/badge/dynamic/json?url=https:%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Finactive-tokens&query=package.installs&colorB=4aa94a&label=Forge%20Installs&suffix=%25)
 
@@ -12,11 +14,11 @@
 
 A changelog can bout found [here](./CHANGELOG.md).
 
-# Description
+## Description
 
 A Foundry VTT module that allows GMs to activate and deactivate tokens for their players. It produces the same behavior as setting `interactive` to `false`, but without disabling the token for the GM.
 
-The main reason I developed this is in order to turn tokens into statues (or statues into sudden enemies!). So I'll also provide the macro that does that here:
+The main reason I developed this is in order to turn tokens into statues (or statues into sudden enemies!). So I'll also provide the macro that does that here (though you need to install the module [Token Magic FX](https://foundryvtt.com/packages/tokenmagic) for it to work):
 
 ```js
 let filterId = 'stone'
@@ -78,9 +80,15 @@ You'd probably usually want to retrieve a token
 * by id, e.g.: `game.canvas.tokens.get(id)`
 * from the canvas, e.g.: `game.canvas.tokens.documentCollection[id]` or `game.canvas.tokens.documentCollection.contents[0]`
 
-## `libWrapper`
+## Dependencies
 
-This module uses the [`libWrapper`](https://github.com/ruipin/fvtt-lib-wrapper) library for wrapping core methods. While this is not a hard dependency, it is recommended to install it for the best experience and compatibility with other modules.\
+### `socketlib`
+
+This modul requires [`socketlib](https://foundryvtt.com/packages/socketlib) to be installed in order to function.
+
+### `libWrapper`
+
+This module uses the [`libWrapper`](https://foundryvtt.com/packages/lib-wrapper) library for wrapping core methods. While this is not a hard dependency, it is recommended to install it for the best experience and compatibility with other modules.\
 You will get another reminder if you load the module without `libWrapper` being present.
 
 ## License
